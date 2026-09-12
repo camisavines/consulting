@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Column, Button } from "@carbon/react";
+import { Grid, Column } from "@carbon/react";
 import { ArrowDown } from "@carbon/react/icons";
 
 function Hero() {
@@ -65,15 +65,26 @@ function Hero() {
             craftsmanship, and long-term strategy.
           </p>
 
-          <Button
-            kind="primary"
-            size="lg"
-            renderIcon={ArrowDown}
+          <button
             onClick={handleCTA}
-            style={{ marginTop: "1rem" }}
+            style={{
+              marginTop: "1rem",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              background: "var(--ink)",
+              color: "var(--paper)",
+              fontFamily: "var(--font-body)",
+              fontSize: "0.98rem",
+              padding: "0.9rem 1.8rem",
+              border: "1px solid var(--ink)",
+              borderRadius: "2px",
+              cursor: "pointer",
+            }}
           >
             Start a conversation
-          </Button>
+            <ArrowDown size={16} />
+          </button>
         </Column>
       </Grid>
     </section>

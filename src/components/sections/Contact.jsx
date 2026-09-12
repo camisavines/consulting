@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Column, Button } from "@carbon/react";
+import { Grid, Column } from "@carbon/react";
 import { Email } from "@carbon/react/icons";
 
 const EMAIL = "hello@cventures.llc";
@@ -56,14 +56,25 @@ function Contact() {
             just an honest conversation.
           </p>
 
-          <Button
-            kind="primary"
-            size="lg"
-            renderIcon={Email}
+          <a
             href={`mailto:${EMAIL}`}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              background: "transparent",
+              color: "var(--paper)",
+              fontFamily: "var(--font-body)",
+              fontSize: "0.98rem",
+              padding: "0.9rem 1.8rem",
+              border: "1px solid var(--paper)",
+              borderRadius: "2px",
+              textDecoration: "none",
+            }}
           >
+            <Email size={16} />
             {EMAIL}
-          </Button>
+          </a>
 
           {/* ── Contact form placeholder ──────────────────────────── */}
           {/* TODO: Replace the mailto link above with a full contact form

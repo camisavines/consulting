@@ -1,18 +1,19 @@
 import React from "react";
-import { Grid, Column, Tile } from "@carbon/react";
+import { Grid, Column, Tile, Button } from "@carbon/react";
+import { ArrowRight } from "@carbon/react/icons";
 
 const clients = [
   {
     img: "/photos/clients/yap.png",
     title: "YouArePerfect LLC",
     quote: "",
-    link: "https://www.youareperfect.us/"
+    link: "https://www.youareperfect.us/",
   },
   {
     img: "/photos/clients/ep.png",
     title: "Excellence Project",
     quote: "",
-    link: "https://www.excellenceproject.org/"
+    link: "https://www.excellenceproject.org/",
   },
 ];
 
@@ -71,7 +72,7 @@ function Clients() {
         <Column sm={4} md={6} lg={12} xlg={12}>
           {/* ── Client logo placeholder grid ─────────────────────── */}
           {/* TODO: Replace these placeholders with actual client logos */}
-          <Grid narrow style={{paddingBottom: "4rem"}}>
+          <Grid narrow style={{ paddingBottom: "4rem" }}>
             {clients.map((c, i) => (
               <Column sm={4} md={4} lg={6} key={i}>
                 <img
@@ -84,10 +85,29 @@ function Clients() {
                     padding: "0 10px",
                   }}
                 />
-                <Tile style={{ borderRadius: "10px", marginTop: "-10", background: "var(--paper)"}}>
+                <Tile
+                  style={{
+                    borderRadius: "10px",
+                    marginTop: "-10",
+                    background: "var(--paper)",
+                  }}
+                >
                   <h4>{c.title}</h4>
                   <h4>"</h4>
                   <p>{c.quote}</p>
+                  <Button
+                    size="xs"
+                    href={c.link}
+                    renderIcon={ArrowRight}
+                    style={{
+                      marginTop: "2rem",
+                      background: "transparent",
+                      color: "var(--ink)",
+                      border: "1px solid var(--ink)",
+                    }}
+                  >
+                    Visit
+                  </Button>
                 </Tile>
               </Column>
             ))}
