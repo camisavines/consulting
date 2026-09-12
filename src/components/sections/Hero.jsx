@@ -1,110 +1,82 @@
-import { motion } from 'framer-motion';
-import { Button } from '../common/Button';
-import { useSmoothScroll } from '../../hooks/useSmoothScroll';
-import { useTypingEffect } from '../../hooks/useTypingEffect';
-import './Hero.css';
+import React from "react";
+import { Grid, Column, Button } from "@carbon/react";
+import { ArrowDown } from "@carbon/react/icons";
 
-const textVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.1,
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1]
-    }
-  })
-};
-
-export const Hero = () => {
-  const scrollTo = useSmoothScroll();
-  const { displayedText, isComplete } = useTypingEffect(
-    'I build digital eminence crafted just for you.',
-    50,  // typing speed in ms
-    600  // delay before starting (after greeting appears)
-  );
+function Hero() {
+  function handleCTA(e) {
+    e.preventDefault();
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  }
 
   return (
-    <section id="hero" className="hero">
-      <div className="container">
-        <div className="hero__content">
-          <motion.p
-            className="hero__greeting"
-            custom={0}
-            initial="hidden"
-            animate="visible"
-            variants={textVariants}
-          >
-            Hey there, I'm Camisa 👋
-          </motion.p>
-
-          <motion.h1
-            className="hero__headline heading-hero"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-          >
-            {displayedText}
-            <span className={`hero__cursor ${isComplete ? 'hero__cursor--blink' : ''}`}>|</span>
-          </motion.h1>
-
-          <motion.p 
-            className="hero__subheadline body-large"
-            custom={2}
-            initial="hidden"
-            animate="visible"
-            variants={textVariants}
-          >
-            Front-stack engineer helping people and small 
-            businesses create confident, modern presences with craftsmanship and care.
-          </motion.p>
-
-          <motion.div 
-            className="hero__cta"
-            custom={3}
-            initial="hidden"
-            animate="visible"
-            variants={textVariants}
-          >
-            <Button 
-              variant="primary" 
-              size="large"
-              onClick={() => scrollTo('projects', 80)}
-            >
-              See my work
-            </Button>
-            <Button 
-              variant="secondary" 
-              size="large"
-              onClick={() => scrollTo('contact', 80)}
-            >
-              Let's chat
-            </Button>
-          </motion.div>
-        </div>
-
-        <motion.div 
-          className="hero__scroll-indicator"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.6 }}
-        >
-          <motion.div
-            className="hero__scroll-arrow"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ 
-              repeat: Infinity, 
-              duration: 1.5,
-              ease: "easeInOut"
+    <section
+      id="hero"
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        paddingTop: "3rem", // clear fixed header
+        backgroundColor: "var(--cds-background)",
+        maxWidth: "1300px",
+        margin: "auto",
+        // backgroundColor: 'gray',
+      }}
+    >
+      <Grid fullWidth>
+        <Column sm={4} md={6} lg={8} xlg={7}>
+          <p
+            style={{
+              fontSize: "var(--cds-label-01-font-size)",
+              letterSpacing: "var(--cds-label-01-letter-spacing)",
+              textTransform: "uppercase",
+              color: "var(--cds-text-helper)",
+              marginBottom: "var(--cds-spacing-04)",
             }}
           >
-            ↓
-          </motion.div>
-        </motion.div>
-      </div>
+            Technical Consulting
+          </p>
+
+          <h1
+            style={{
+              fontSize: "clamp(2.25rem, 5vw, 3.75rem)",
+              fontWeight: 300,
+              lineHeight: 1.2,
+              color: "var(--cds-text-primary)",
+              marginBottom: "var(--cds-spacing-06)",
+              maxWidth: "38ch",
+            }}
+          >
+            Digital foundations built for businesses that mean business.
+          </h1>
+
+          <p
+            style={{
+              fontSize: "var(--cds-body-02-font-size)",
+              lineHeight: "var(--cds-body-02-line-height)",
+              color: "var(--cds-text-secondary)",
+              marginTop: "3rem",
+              marginBottom: "var(--cds-spacing-01)",
+              maxWidth: "52ch",
+            }}
+          >
+            C Ventures LLC partners with small businesses and founders to
+            design, build, and grow their digital presence — with clarity,
+            craftsmanship, and long-term strategy.
+          </p>
+
+          <Button
+            kind="primary"
+            size="lg"
+            renderIcon={ArrowDown}
+            onClick={handleCTA}
+            style={{ marginTop: "1rem" }}
+          >
+            Start a conversation
+          </Button>
+        </Column>
+      </Grid>
     </section>
   );
-};
+}
 
-// Made with Bob
+export default Hero;
