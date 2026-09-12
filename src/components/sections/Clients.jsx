@@ -1,43 +1,54 @@
-import React from 'react';
-import { Grid, Column } from '@carbon/react';
+import React from "react";
+import { Grid, Column, Tile } from "@carbon/react";
+
+const clients = [
+  {
+    img: "/photos/clients/yap.png",
+    title: "YouArePerfect LLC",
+    quote: "",
+    link: "https://www.youareperfect.us/"
+  },
+  {
+    img: "/photos/clients/ep.png",
+    title: "Excellence Project",
+    quote: "",
+    link: "https://www.excellenceproject.org/"
+  },
+];
 
 function Clients() {
   return (
     <section
       id="clients"
       style={{
-        padding: '3rem 0',
-        // paddingBottom: 'var(--cds-spacing-13)',
-        backgroundColor: 'var(--cds-layer)',
-        
+        padding: "3rem 0",
+        // backgroundColor: 'var(--paper-alt)',
       }}
     >
-      <Grid fullWidth style={{
-        maxWidth: "1300px",
-        margin: "auto",
-      }}>
+      <Grid
+        fullWidth
+        style={{
+          maxWidth: "1300px",
+          margin: "auto",
+        }}
+      >
         <Column sm={4} md={2} lg={4}>
           <h2
             style={{
-              // fontSize: 'var(--cds-label-01-font-size)',
-              letterSpacing: 'var(--cds-label-01-letter-spacing)',
-              // textTransform: 'uppercase',
-              color: 'var(--cds-text-helper)',
-              paddingTop: 'var(--cds-spacing-02)',
+              fontFamily: "var(--font-body)",
+              color: "var(--ink-soft)",
             }}
           >
             Clients
           </h2>
-        </Column>
-
-        <Column sm={4} md={6} lg={8} xlg={7}>
           <h2
             style={{
-              fontSize: 'var(--cds-heading-04-font-size)',
-              fontWeight: 'var(--cds-heading-04-font-weight)',
-              lineHeight: 'var(--cds-heading-04-line-height)',
-              color: 'var(--cds-text-primary)',
-              marginBottom: 'var(--cds-spacing-06)',
+              fontFamily: "var(--font-display)",
+              fontSize: "var(--cds-heading-04-font-size)",
+              fontWeight: 560,
+              lineHeight: 1.08,
+              color: "var(--ink)",
+              marginBottom: "var(--cds-spacing-06)",
             }}
           >
             Trusted by founders and small business owners.
@@ -45,38 +56,42 @@ function Clients() {
 
           <p
             style={{
-              fontSize: 'var(--cds-body-02-font-size)',
-              lineHeight: 'var(--cds-body-02-line-height)',
-              color: 'var(--cds-text-secondary)',
-              marginBottom: 'var(--cds-spacing-10)',
+              fontFamily: "var(--font-body)",
+              lineHeight: "var(--cds-body-02-line-height)",
+              color: "var(--ink-soft)",
+              marginBottom: "var(--cds-spacing-10)",
+              marginTop: "1rem",
             }}
           >
-            We work with a select group of clients at a time to ensure every engagement
-            gets the full attention it deserves. Client logos and case studies coming soon.
+            I work with a select group of clients at a time to ensure every
+            engagement gets the full attention it deserves.
           </p>
+        </Column>
 
+        <Column sm={4} md={6} lg={12} xlg={12}>
           {/* ── Client logo placeholder grid ─────────────────────── */}
           {/* TODO: Replace these placeholders with actual client logos */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))',
-              gap: 'var(--cds-spacing-06)',
-            }}
-          >
-            {[1, 2, 3, 4].map((n) => (
-              <div
-                key={n}
-                aria-hidden="true"
-                style={{
-                  height: '3rem',
-                  borderRadius: '2px',
-                  backgroundColor: 'var(--cds-layer-02)',
-                  border: '1px dashed var(--cds-border-subtle)',
-                }}
-              />
+          <Grid narrow style={{paddingBottom: "4rem"}}>
+            {clients.map((c, i) => (
+              <Column sm={4} md={4} lg={6} key={i}>
+                <img
+                  src={c.img}
+                  width={"100%"}
+                  height={"80%"}
+                  style={{
+                    borderRadius: "15px",
+                    marginBottom: "-25px",
+                    padding: "0 10px",
+                  }}
+                />
+                <Tile style={{ borderRadius: "10px", marginTop: "-10", background: "var(--paper)"}}>
+                  <h4>{c.title}</h4>
+                  <h4>"</h4>
+                  <p>{c.quote}</p>
+                </Tile>
+              </Column>
             ))}
-          </div>
+          </Grid>
         </Column>
       </Grid>
     </section>

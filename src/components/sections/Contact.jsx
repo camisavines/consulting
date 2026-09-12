@@ -10,21 +10,17 @@ function Contact() {
       id="contact"
       style={{
         padding: "3rem 0",
-        // paddingBottom: 'var(--cds-spacing-13)',
-        backgroundColor: "var(--cds-background)",
-        maxWidth: "1300px",
-        margin: "auto",
+        backgroundColor: "var(--ink)",
       }}
     >
-      <Grid fullWidth>
+      <Grid fullWidth style={{ maxWidth: "1300px", margin: "auto" }}>
         <Column sm={4} md={2} lg={4}>
           <h2
             style={{
-              // fontSize: 'var(--cds-label-01-font-size)',
+              fontFamily: "var(--font-body)",
               letterSpacing: "var(--cds-label-01-letter-spacing)",
-              // textTransform: 'uppercase',
-              color: "var(--cds-text-helper)",
-              // paddingTop: 'var(--cds-spacing-02)',
+              color: "#C9C5BA",
+
             }}
           >
             Contact
@@ -34,11 +30,12 @@ function Contact() {
         <Column sm={4} md={6} lg={8} xlg={7}>
           <h2
             style={{
+              fontFamily: "var(--font-display)",
               fontSize: "var(--cds-heading-04-font-size)",
-              fontWeight: "var(--cds-heading-04-font-weight)",
-              lineHeight: "var(--cds-heading-04-line-height)",
-              color: "var(--cds-text-primary)",
-              marginBottom: "var(--cds-spacing-06)",
+              fontWeight: 560,
+              lineHeight: 1.08,
+              color: "var(--paper)",
+              marginBottom: "1rem",
             }}
           >
             Let&apos;s talk about what you&apos;re building.
@@ -46,15 +43,16 @@ function Contact() {
 
           <p
             style={{
+              fontFamily: "var(--font-body)",
               fontSize: "var(--cds-body-02-font-size)",
               lineHeight: "var(--cds-body-02-line-height)",
-              color: "var(--cds-text-secondary)",
-              marginBottom: "var(--cds-spacing-08)",
+              color: "#C9C5BA",
+              marginBottom: "1rem",
               maxWidth: "54ch",
             }}
           >
             Whether you have a clear brief or just an idea, reach out and
-            we&apos;ll figure out the right next step together. No sales pitch —
+            I&apos;ll figure out the right next step together. No sales pitch —
             just an honest conversation.
           </p>
 

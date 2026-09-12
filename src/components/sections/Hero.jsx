@@ -16,20 +16,19 @@ function Hero() {
         display: "flex",
         alignItems: "center",
         paddingTop: "3rem", // clear fixed header
-        backgroundColor: "var(--cds-background)",
-        maxWidth: "1300px",
-        margin: "auto",
-        // backgroundColor: 'gray',
+        backgroundColor: "var(--paper)",
       }}
     >
-      <Grid fullWidth>
+      <Grid fullWidth style={{maxWidth: "1300px",
+              margin: "auto",}}>
         <Column sm={4} md={6} lg={8} xlg={7}>
           <p
             style={{
               fontSize: "var(--cds-label-01-font-size)",
               letterSpacing: "var(--cds-label-01-letter-spacing)",
               textTransform: "uppercase",
-              color: "var(--cds-text-helper)",
+              color: "var(--ink-soft)",
+              fontFamily: "var(--font-body)",
               marginBottom: "var(--cds-spacing-04)",
             }}
           >
@@ -39,9 +38,10 @@ function Hero() {
           <h1
             style={{
               fontSize: "clamp(2.25rem, 5vw, 3.75rem)",
-              fontWeight: 300,
-              lineHeight: 1.2,
-              color: "var(--cds-text-primary)",
+              fontFamily: "var(--font-display)",
+              fontWeight: 560,
+              lineHeight: 1.08,
+              color: "var(--ink)",
               marginBottom: "var(--cds-spacing-06)",
               maxWidth: "38ch",
             }}
@@ -53,7 +53,8 @@ function Hero() {
             style={{
               fontSize: "var(--cds-body-02-font-size)",
               lineHeight: "var(--cds-body-02-line-height)",
-              color: "var(--cds-text-secondary)",
+              fontFamily: "var(--font-body)",
+              color: "var(--ink-soft)",
               marginTop: "3rem",
               marginBottom: "var(--cds-spacing-01)",
               maxWidth: "52ch",

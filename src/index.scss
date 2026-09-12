@@ -1,5 +1,19 @@
 @use '@carbon/react';
 
+/* ── C Ventures design tokens (from style.css) ─────────── */
+:root {
+  --paper:      #F1EEE7;
+  --paper-alt:  #E9E4D9;
+  --ink:        #201F1B;
+  --ink-soft:   #58554C;
+  --accent:     #B9812E;
+  --accent-dim: #3F5750;
+  --line:       #D8D1C2;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body:    "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
 html {
   scroll-behavior: smooth;
 }
