@@ -1,5 +1,4 @@
 import React from "react";
-import { Grid, Column } from "@carbon/react";
 
 const STEPS = [
   {
@@ -33,86 +32,96 @@ function Approach() {
     <section
       id="approach"
       style={{
-        padding: "4rem 0",
-        minHeight: "60vh",
-        paddingBottom: "var(--cds-spacing-13)",
-        backgroundColor: "var(--paper)",
+        padding: "6rem 1.5rem",
+        backgroundColor: "var(--paper-alt)",
       }}
     >
-      <Grid fullWidth style={{ maxWidth: "1300px", margin: "auto" }}>
-        {/* Section label */}
-        <Column sm={4} md={8} lg={16} style={{ marginBottom: "4rem" }}>
-          <h2
+      <div style={{ maxWidth: "1300px", margin: "0 auto" }}>
+        {/* Header */}
+        <div style={{ marginBottom: "4rem" }}>
+          <p
             style={{
               fontFamily: "var(--font-body)",
-              color: "var(--ink-soft)",
-
+              fontSize: "0.78rem",
+              fontWeight: 600,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "var(--accent)",
               marginBottom: "1rem",
             }}
           >
-            Approach
-          </h2>
+            How we work
+          </p>
           <h2
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "var(--cds-heading-04-font-size)",
+              fontSize: "clamp(2rem, 4vw, 3rem)",
               fontWeight: 560,
               lineHeight: 1.08,
               color: "var(--ink)",
-              marginBottom: "var(--cds-spacing-10)",
               maxWidth: "30ch",
             }}
           >
-            A straightforward process designed to deliver results — not
-            ceremony.
+            A straightforward process designed to deliver results — not ceremony.
           </h2>
-        </Column>
+        </div>
 
-        {/* Step columns */}
-        {STEPS.map((step) => (
-          <Column
-            key={step.number}
-            sm={4}
-            md={4}
-            lg={4}
-            style={{ borderTop: "2px solid var(--accent)", padding: "1rem 0" }}
-          >
-            <p
+        {/* Step grid */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gap: "0",
+          }}
+        >
+          {STEPS.map((step, i) => (
+            <div
+              key={step.number}
               style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "1rem",
-                color: "var(--accent)",
-                marginBottom: "var(--cds-spacing-04)",
+                borderTop: "2px solid var(--accent)",
+                paddingTop: "1.5rem",
+                paddingRight: i < STEPS.length - 1 ? "2rem" : "0",
+                paddingBottom: "2rem",
               }}
             >
-              {step.number}
-            </p>
-            <h3
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "3em",
-                fontWeight: 440,
-                lineHeight: 1.08,
-                color: "var(--ink)",
-                marginBottom: "var(--cds-spacing-04)",
-                paddingBottom: "1rem",
-              }}
-            >
-              {step.label}
-            </h3>
-            <p
-              style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "0.95rem",
-                lineHeight: "var(--cds-body-01-line-height)",
-                color: "var(--ink-soft)",
-              }}
-            >
-              {step.description}
-            </p>
-          </Column>
-        ))}
-      </Grid>
+              <p
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "0.78rem",
+                  fontWeight: 600,
+                  letterSpacing: "0.12em",
+                  color: "var(--accent)",
+                  marginBottom: "1rem",
+                }}
+              >
+                {step.number}
+              </p>
+              <h3
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(2rem, 3vw, 2.8rem)",
+                  fontWeight: 440,
+                  lineHeight: 1.05,
+                  color: "var(--ink)",
+                  marginBottom: "1rem",
+                }}
+              >
+                {step.label}
+              </h3>
+              <p
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "0.93rem",
+                  lineHeight: 1.7,
+                  color: "var(--ink-soft)",
+                }}
+              >
+                {step.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

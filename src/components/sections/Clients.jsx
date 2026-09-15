@@ -1,18 +1,17 @@
 import React from "react";
-import { Grid, Column, Tile, Button } from "@carbon/react";
 import { ArrowRight } from "@carbon/react/icons";
 
 const clients = [
   {
     img: "/photos/clients/yap.png",
     title: "YouArePerfect LLC",
-    quote: "",
+    description: "Brand identity and web presence for a growing wellness company.",
     link: "https://www.youareperfect.us/",
   },
   {
     img: "/photos/clients/ep.png",
     title: "Excellence Project",
-    quote: "",
+    description: "Digital strategy and website development for a non-profit education initiative.",
     link: "https://www.excellenceproject.org/",
   },
 ];
@@ -22,98 +21,117 @@ function Clients() {
     <section
       id="clients"
       style={{
-        padding: "3rem 0",
-        // backgroundColor: 'var(--paper-alt)',
+        padding: "6rem 1.5rem",
+        backgroundColor: "var(--paper)",
       }}
     >
-      <Grid
-        fullWidth
-        style={{
-          maxWidth: "1300px",
-          margin: "auto",
-        }}
-      >
-        <Column sm={4} md={2} lg={4}>
-          <h2
+      <div style={{ maxWidth: "1300px", margin: "0 auto" }}>
+        {/* Header */}
+        <div style={{ marginBottom: "4rem" }}>
+          <p
             style={{
               fontFamily: "var(--font-body)",
-              color: "var(--ink-soft)",
+              fontSize: "0.78rem",
+              fontWeight: 600,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "var(--accent)",
+              marginBottom: "1rem",
             }}
           >
-            Clients
-          </h2>
+            Our work
+          </p>
           <h2
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "var(--cds-heading-04-font-size)",
+              fontSize: "clamp(2rem, 4vw, 3rem)",
               fontWeight: 560,
               lineHeight: 1.08,
               color: "var(--ink)",
-              marginBottom: "var(--cds-spacing-06)",
+              maxWidth: "28ch",
             }}
           >
             Trusted by founders and small business owners.
           </h2>
+        </div>
 
-          <p
-            style={{
-              fontFamily: "var(--font-body)",
-              lineHeight: "var(--cds-body-02-line-height)",
-              color: "var(--ink-soft)",
-              marginBottom: "var(--cds-spacing-10)",
-              marginTop: "1rem",
-            }}
-          >
-            I work with a select group of clients at a time to ensure every
-            engagement gets the full attention it deserves.
-          </p>
-        </Column>
-
-        <Column sm={4} md={6} lg={12} xlg={12}>
-          {/* ── Client logo placeholder grid ─────────────────────── */}
-          {/* TODO: Replace these placeholders with actual client logos */}
-          <Grid narrow style={{ paddingBottom: "4rem" }}>
-            {clients.map((c, i) => (
-              <Column sm={4} md={4} lg={6} key={i}>
-                <img
-                  src={c.img}
-                  width={"100%"}
-                  height={"80%"}
+        {/* Client cards */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+            gap: "2rem",
+          }}
+        >
+          {clients.map((c) => (
+            <div
+              key={c.title}
+              style={{
+                backgroundColor: "var(--paper-alt)",
+                border: "1px solid var(--line)",
+                borderRadius: "3px",
+                overflow: "hidden",
+              }}
+            >
+              <img
+                src={c.img}
+                alt={c.title}
+                style={{
+                  width: "100%",
+                  height: "220px",
+                  objectFit: "cover",
+                  display: "block",
+                  borderBottom: "1px solid var(--line)",
+                }}
+              />
+              <div style={{ padding: "1.75rem" }}>
+                <h3
                   style={{
-                    borderRadius: "15px",
-                    marginBottom: "-25px",
-                    padding: "0 10px",
-                  }}
-                />
-                <Tile
-                  style={{
-                    borderRadius: "10px",
-                    marginTop: "-10",
-                    background: "var(--paper)",
+                    fontFamily: "var(--font-display)",
+                    fontSize: "1.25rem",
+                    fontWeight: 440,
+                    color: "var(--ink)",
+                    marginBottom: "0.5rem",
                   }}
                 >
-                  <h4>{c.title}</h4>
-                  <h4>"</h4>
-                  <p>{c.quote}</p>
-                  <Button
-                    size="xs"
-                    href={c.link}
-                    renderIcon={ArrowRight}
-                    style={{
-                      marginTop: "2rem",
-                      background: "transparent",
-                      color: "var(--ink)",
-                      border: "1px solid var(--ink)",
-                    }}
-                  >
-                    Visit
-                  </Button>
-                </Tile>
-              </Column>
-            ))}
-          </Grid>
-        </Column>
-      </Grid>
+                  {c.title}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "var(--font-body)",
+                    fontSize: "0.9rem",
+                    lineHeight: 1.65,
+                    color: "var(--ink-soft)",
+                    marginBottom: "1.5rem",
+                  }}
+                >
+                  {c.description}
+                </p>
+                <a
+                  href={c.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.4rem",
+                    fontFamily: "var(--font-body)",
+                    fontSize: "0.85rem",
+                    fontWeight: 500,
+                    letterSpacing: "0.06em",
+                    color: "var(--ink)",
+                    textDecoration: "none",
+                    borderBottom: "1px solid var(--ink)",
+                    paddingBottom: "1px",
+                  }}
+                >
+                  Visit site <ArrowRight size={14} />
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

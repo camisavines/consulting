@@ -1,11 +1,9 @@
 import React from "react";
-import { Grid, Column } from "@carbon/react";
-import { ArrowDown } from "@carbon/react/icons";
+import { ArrowDown, ArrowRight } from "@carbon/react/icons";
 
 function Hero() {
-  function handleCTA(e) {
-    e.preventDefault();
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  function scrollTo(id) {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   }
 
   return (
@@ -14,79 +12,146 @@ function Hero() {
       style={{
         minHeight: "100vh",
         display: "flex",
+        flexDirection: "column",
         alignItems: "center",
-        paddingTop: "3rem", // clear fixed header
+        justifyContent: "center",
+        textAlign: "center",
+        padding: "8rem 1.5rem 5rem",
         backgroundColor: "var(--paper)",
       }}
     >
-      <Grid fullWidth style={{maxWidth: "1300px",
-              margin: "auto",}}>
-        <Column sm={4} md={6} lg={8} xlg={7}>
-          <p
-            style={{
-              fontSize: "var(--cds-label-01-font-size)",
-              letterSpacing: "var(--cds-label-01-letter-spacing)",
-              textTransform: "uppercase",
-              color: "var(--ink-soft)",
-              fontFamily: "var(--font-body)",
-              marginBottom: "var(--cds-spacing-04)",
-            }}
-          >
-            Technical Consulting
-          </p>
+      <p
+        style={{
+          fontFamily: "var(--font-body)",
+          fontSize: "0.78rem",
+          fontWeight: 600,
+          letterSpacing: "0.18em",
+          textTransform: "uppercase",
+          color: "var(--accent)",
+          marginBottom: "1.5rem",
+        }}
+      >
+        Technical Consulting · Web Design · Digital Strategy
+      </p>
 
-          <h1
-            style={{
-              fontSize: "clamp(2.25rem, 5vw, 3.75rem)",
-              fontFamily: "var(--font-display)",
-              fontWeight: 560,
-              lineHeight: 1.08,
-              color: "var(--ink)",
-              marginBottom: "var(--cds-spacing-06)",
-              maxWidth: "38ch",
-            }}
-          >
-            Digital foundations built for businesses that mean business.
-          </h1>
+      <h1
+        style={{
+          fontFamily: "var(--font-display)",
+          fontSize: "clamp(2.6rem, 6.5vw, 5rem)",
+          fontWeight: 560,
+          lineHeight: 1.06,
+          color: "var(--ink)",
+          maxWidth: "18ch",
+          margin: "0 auto 1.75rem",
+        }}
+      >
+        Digital foundations built for businesses that mean business.
+      </h1>
 
-          <p
-            style={{
-              fontSize: "var(--cds-body-02-font-size)",
-              lineHeight: "var(--cds-body-02-line-height)",
-              fontFamily: "var(--font-body)",
-              color: "var(--ink-soft)",
-              marginTop: "3rem",
-              marginBottom: "var(--cds-spacing-01)",
-              maxWidth: "52ch",
-            }}
-          >
-            C Ventures LLC partners with small businesses and founders to
-            design, build, and grow their digital presence — with clarity,
-            craftsmanship, and long-term strategy.
-          </p>
+      <p
+        style={{
+          fontFamily: "var(--font-body)",
+          fontSize: "clamp(1rem, 1.6vw, 1.2rem)",
+          lineHeight: 1.65,
+          color: "var(--ink-soft)",
+          maxWidth: "52ch",
+          margin: "0 auto 2.75rem",
+        }}
+      >
+        C Ventures LLC partners with small businesses and founders to design,
+        build, and grow their digital presence — with clarity, craftsmanship,
+        and long-term strategy.
+      </p>
 
-          <button
-            onClick={handleCTA}
-            style={{
-              marginTop: "1rem",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              background: "var(--ink)",
-              color: "var(--paper)",
-              fontFamily: "var(--font-body)",
-              fontSize: "0.98rem",
-              padding: "0.9rem 1.8rem",
-              border: "1px solid var(--ink)",
-              borderRadius: "2px",
-              cursor: "pointer",
-            }}
-          >
-            Start a conversation
-            <ArrowDown size={16} />
-          </button>
-        </Column>
-      </Grid>
+      <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center" }}>
+        <button
+          onClick={() => scrollTo("contact")}
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            background: "var(--ink)",
+            color: "var(--paper)",
+            fontFamily: "var(--font-body)",
+            fontSize: "0.95rem",
+            fontWeight: 500,
+            padding: "0.85rem 1.75rem",
+            border: "1px solid var(--ink)",
+            borderRadius: "2px",
+            cursor: "pointer",
+          }}
+        >
+          Start a conversation
+          <ArrowRight size={16} />
+        </button>
+
+        <button
+          onClick={() => scrollTo("services")}
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            background: "transparent",
+            color: "var(--ink)",
+            fontFamily: "var(--font-body)",
+            fontSize: "0.95rem",
+            fontWeight: 500,
+            padding: "0.85rem 1.75rem",
+            border: "1px solid var(--line)",
+            borderRadius: "2px",
+            cursor: "pointer",
+          }}
+        >
+          See our services
+          <ArrowDown size={16} />
+        </button>
+      </div>
+
+      {/* Trust bar */}
+      <div
+        style={{
+          marginTop: "5rem",
+          display: "flex",
+          gap: "3rem",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          borderTop: "1px solid var(--line)",
+          paddingTop: "2.5rem",
+          width: "100%",
+          maxWidth: "680px",
+        }}
+      >
+        {[
+          { stat: "100%", label: "Client satisfaction" },
+          { stat: "2+", label: "Businesses served" },
+          { stat: "Fast", label: "Turnaround" },
+        ].map(({ stat, label }) => (
+          <div key={label} style={{ textAlign: "center" }}>
+            <p
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "2rem",
+                fontWeight: 560,
+                color: "var(--ink)",
+                marginBottom: "0.25rem",
+              }}
+            >
+              {stat}
+            </p>
+            <p
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "0.8rem",
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "var(--ink-soft)",
+              }}
+            >
+              {label}
+            </p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
