@@ -22,3 +22,77 @@ html {
 [id] {
   scroll-margin-top: 3rem;
 }
+
+/* ── Responsive layout helpers ──────────────────────────────────────────── */
+
+/* About: 2-col → 1-col stack */
+.cv-about-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Contact: 2-col → 1-col stack */
+.cv-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+/* Services row: 3-col → 2-col (hide number on xs) → 1-col */
+.cv-service-row {
+  display: grid;
+  grid-template-columns: 3rem 1fr auto;
+  align-items: start;
+  gap: 2rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--line);
+}
+
+/* Navbar: hide "Get a quote" button label on very small screens */
+.cv-nav-cta-label {
+  display: inline;
+}
+
+@media (max-width: 671px) {
+  /* About */
+  .cv-about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* Contact */
+  .cv-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  /* Services: collapse to single column, hide the number prefix */
+  .cv-service-row {
+    grid-template-columns: 1fr auto;
+  }
+  .cv-service-number {
+    display: none;
+  }
+
+  /* Navbar CTA: icon only */
+  .cv-nav-cta-label {
+    display: none;
+  }
+}
+
+@media (min-width: 672px) and (max-width: 1055px) {
+  /* About: keep 2-col but tighten gap */
+  .cv-about-grid {
+    gap: 2.5rem;
+  }
+
+  /* Contact: keep 2-col but tighten gap */
+  .cv-contact-grid {
+    gap: 3rem;
+  }
+
+  /* Services row stays 3-col */
+}

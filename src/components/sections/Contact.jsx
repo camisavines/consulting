@@ -13,14 +13,8 @@ function Contact() {
       }}
     >
       <div
-        style={{
-          maxWidth: "1300px",
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "6rem",
-          alignItems: "center",
-        }}
+        className="cv-contact-grid"
+        style={{ maxWidth: "1300px", margin: "0 auto" }}
       >
         {/* Left: heading */}
         <div>

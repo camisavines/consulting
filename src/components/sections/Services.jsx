@@ -69,18 +69,9 @@ function Services() {
       {/* Service rows */}
       <div style={{ maxWidth: "1300px", margin: "0 auto" }}>
         {SERVICES.map((s) => (
-          <div
-            key={s.number}
-            style={{
-              display: "grid",
-              gridTemplateColumns: "3rem 1fr auto",
-              alignItems: "start",
-              gap: "2rem",
-              padding: "2.5rem 0",
-              borderTop: "1px solid var(--line)",
-            }}
-          >
+          <div key={s.number} className="cv-service-row">
             <span
+              className="cv-service-number"
               style={{
                 fontFamily: "var(--font-body)",
                 fontSize: "0.78rem",

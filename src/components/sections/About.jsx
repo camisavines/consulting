@@ -11,14 +11,7 @@ function About() {
     >
       <div style={{ maxWidth: "1300px", margin: "0 auto" }}>
         {/* Two-column layout: label left, content right */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 2fr",
-            gap: "4rem",
-            alignItems: "start",
-          }}
-        >
+        <div className="cv-about-grid">
           <div>
             <p
               style={{
